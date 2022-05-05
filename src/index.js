@@ -77,9 +77,10 @@ function removeKthNodeFromEnd(head, k) {
   while (fast !== null) {
     fast = fast.next;
     slow = slow.next;
-    let nodeToBeRemoved = slow.value;
+    counter++;
   }
-  
+  let nodeToBeRemoved = slow.value;
+  nodeToBeRemoved[counter - 1] = nodeToBeRemoved.next;
   // no return needed
 }
 
