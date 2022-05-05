@@ -74,15 +74,12 @@ function removeKthNodeFromEnd(head, k) {
   //
   // if nodeToBeRemoved = head, change it's value and next point
   // don't change it as the head of the linked list
-  if (fast === null) {
-    let nodeToBeRemoved = 
+  while (fast !== null) {
+    fast = fast.next;
+    slow = slow.next;
+    let nodeToBeRemoved = slow.value;
   }
-  while (pointer2.value !== nodeToBeRemoved) {
-    // remove node (position)
-    pointer1.next = pointer2.next;
-    pointer2 = null;
-  }
-
+  
   // no return needed
 }
 
