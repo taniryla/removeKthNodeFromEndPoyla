@@ -52,31 +52,55 @@ head, k
 // if nodeToBeRemoved = head, change it's value and next point 
 // don't change it as the head of the linked list
 
-function removeKthNodeFromEnd(head, k) {
-  // current equals head and count equals 0
-  let current = head;
-  let count = 0;
-  // traverse current til null and add counter
-  while (current !== null) {
-    count += 1;
-    current = current.next;
-    console.log(count);
+class LinkedList {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
   }
-  // let position = count minus K plus 1
-  let nodeToBeRemoved = count - k + 1;
+}
+
+function removeKthNodeFromEnd(head, k) {
+  // use two pointers
+  let counter = 1;
+  let slow = head;
+  let fast = head;
+  // traverse while counter less than or equal to k
+  // fast = fast.next
+  // counter++
+  while (counter <= k) {
+    fast = fast.next;
+    counter++;
+  }
+  //
   // if nodeToBeRemoved = head, change it's value and next point
   // don't change it as the head of the linked list
-  if (nodeToBeRemoved.value === head) {
-    this.head = current.next;
+  if (fast === null) {
+    let nodeToBeRemoved = 
   }
-  while (current.value !== nodeToBeRemoved) {
+  while (pointer2.value !== nodeToBeRemoved) {
     // remove node (position)
-    current.prev.next = current.next;
-    current = null;
+    pointer1.next = pointer2.next;
+    pointer2 = null;
   }
-
-  // while current.value !== position, remove
-  // current.prev.next = current.next and current equals nulls
 
   // no return needed
 }
+
+removeKthNodeFromEnd(
+  {
+    head: "0",
+    nodes: [
+      { id: "0", next: "1", value: 0 },
+      { id: "1", next: "2", value: 1 },
+      { id: "2", next: "3", value: 2 },
+      { id: "3", next: "4", value: 3 },
+      { id: "4", next: "5", value: 4 },
+      { id: "5", next: "6", value: 5 },
+      { id: "6", next: "7", value: 6 },
+      { id: "7", next: "8", value: 7 },
+      { id: "8", next: "9", value: 8 },
+      { id: "9", next: null, value: 9 }
+    ]
+  },
+  4
+);
