@@ -80,7 +80,7 @@ function removeKthNodeFromEnd(head, k) {
   //
   // if nodeToBeRemoved = head, change it's value and next point
   // don't change it as the head of the linked list
-  if (fast !== null) {
+  if (fast === null) {
     head.value = head.next.value;
     head.next = head.next.next;
     return;
